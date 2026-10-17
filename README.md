@@ -394,8 +394,8 @@ erDiagram
     }
 
     room_participants {
-        bigint room_id PK_FK
-        bigint user_id PK_FK
+        bigint room_id PK, FK
+        bigint user_id PK, FK
         varchar membership_status
         boolean is_ready
         timestamptz joined_at
@@ -416,7 +416,7 @@ erDiagram
 
     matches {
         bigint id PK
-        bigint room_id FK_UK
+        bigint room_id FK, UK
         varchar status
         integer participant_count
         integer duration_seconds
@@ -427,8 +427,8 @@ erDiagram
     }
 
     match_participants {
-        bigint match_id PK_FK
-        bigint user_id PK_FK
+        bigint match_id PK, FK
+        bigint user_id PK, FK
         integer rating_before
         integer rating_after
         integer problems_solved
@@ -440,8 +440,8 @@ erDiagram
     }
 
     match_problems {
-        bigint match_id PK_FK
-        bigint problem_id PK_FK
+        bigint match_id PK, FK
+        bigint problem_id PK, FK
         integer display_order
     }
 
@@ -461,9 +461,9 @@ erDiagram
     }
 
     participant_problem_progress {
-        bigint match_id PK_FK
-        bigint user_id PK_FK
-        bigint problem_id PK_FK
+        bigint match_id PK, FK
+        bigint user_id PK, FK
+        bigint problem_id PK, FK
         integer attempts
         timestamptz solved_at
         integer penalty_seconds
@@ -471,7 +471,7 @@ erDiagram
 
     judge_jobs {
         bigint id PK
-        bigint submission_id FK_UK
+        bigint submission_id FK, UK
         varchar status
         integer attempt_count
         varchar worker_id
@@ -492,8 +492,8 @@ erDiagram
     }
 
     friendships {
-        bigint requester_id PK_FK
-        bigint addressee_id PK_FK
+        bigint requester_id PK, FK
+        bigint addressee_id PK, FK
         varchar status
         timestamptz created_at
     }
